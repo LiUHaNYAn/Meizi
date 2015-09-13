@@ -37,4 +37,41 @@
 
       </bean>
     </mvc:interceptors>
+    <bean name="datasource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="url" value="http://localhost:3306/test"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="123456"></property>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="minIdle" value="10"></property>
+        <property name="maxIdle" value="100"></property>
+        <property name="testOnBorrow" value="true" />
+        <property name="testOnReturn" value="true" />
+        <property name="testWhileIdle" value="true" />
+    </bean>
+    <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="datasource" />-->
+        <!--&lt;!&ndash; 注意：我用的是Annotation的方式配置的Hibernate，这里的property的name是annotatedClasses &ndash;&gt;-->
+        <!--<property name="annotatedClasses">-->
+            <!--<list>-->
+                <!--<value>org.zhy.demo.dao.model.UserInfo</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="hibernateProperties">-->
+            <!--<props>-->
+                <!--&lt;!&ndash; 设置Hibernate方言 &ndash;&gt;-->
+                <!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>-->
+                <!--&lt;!&ndash; 是否打印sql &ndash;&gt;-->
+                <!--<prop key="hibernate.show_sql">true</prop>-->
+                <!--&lt;!&ndash; 格式化sql &ndash;&gt;-->
+                <!--<prop key="hibernate.format_sql">true</prop>-->
+                <!--&lt;!&ndash; 是否自动更新表 &ndash;&gt;-->
+                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+                <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
+                <!--&lt;!&ndash; 最大抓取深度，如果为0，则关闭默认的外连接抓取。建议值为0-3 &ndash;&gt;-->
+                <!--<prop key="hibernate.max_fetch_depth">1</prop>-->
+                <!--&lt;!&ndash; 用于生成有助于调试的注释信息，默认为关闭 &ndash;&gt;-->
+                <!--<prop key="hibernate.use_sql_comments">true</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
 </beans>
