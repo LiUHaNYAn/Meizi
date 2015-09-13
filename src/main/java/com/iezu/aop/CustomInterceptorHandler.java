@@ -18,6 +18,9 @@ public class CustomInterceptorHandler implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView modelAndView) throws Exception {
        System.out.println("Path Info:"+request.getRequestURI());
         System.out.println("Path Info:"+request.getQueryString());
+
+
+
         HttpSession session=request.getSession();
         if(!request.getRequestURI().equals("/user/index")){
             if(session==null||session.getAttribute("username")==null){
