@@ -24,8 +24,7 @@ import java.sql.SQLException;
  */
 @Controller
 public class UserController {
-    @Autowired
-    private DataSource dataSource;
+
     @RequestMapping("/user/index")
     public ModelAndView index(){
         ModelAndView view=new ModelAndView("user/index");
@@ -35,9 +34,6 @@ public class UserController {
     @RequestMapping(value = "/user/adduser")
     @ResponseBody
     public ResultModel UserAdd(@RequestParam String username,@RequestParam String password,HttpSession session) throws SQLException {
-        Connection connection=dataSource.getConnection();
-        PreparedStatement statement= connection.prepareStatement("");
-        statement.execute();
         UserInfo demo=new UserInfo();
         demo.setUsername(username);
         demo.setPassword(password);
